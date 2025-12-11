@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV ADCO FOOD</title>
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN for utility classes and animations -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav relative">
+      <ul class="nav-left">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#products">KATALOG PRODUK</a></li>
+      </ul>
+      <a class="logo" href="#home">
+        <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+        <span class="logo-text">ADCO FOOD</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about">TENTANG KAMI</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <div class="icons">
+          <button aria-label="cart" class="icon-btn"><img src="images/ic_cart.svg" alt="Cart"><span class="badge">0</span></button>
+          <button aria-label="user" class="icon-btn"><img src="images/ic_user.svg" alt="User"></button>
+          <!-- Mobile menu toggle (visible on small screens) -->
+          <button id="menuToggle" class="md:hidden ml-2 p-2 rounded-md text-lg" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open main menu">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <!-- Hero carousel -->
+        <div class="relative">
+          <div id="heroCarousel" class="overflow-hidden relative">
+            <div class="hero-track flex transition-transform duration-700">
+              <div class="hero-slide flex-shrink-0 w-full text-center py-16 pb-2 px-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white">SELAMAT DATANG DI <br/><span class="text-orange-400">CV ADCO FOOD</span></h1>
+                <p class="lead mt-4">Distributor tepung roti dan bahan makanan terpercaya untuk industri, UMKM, dan toko bahan kue dengan kualitas terjamin dan pelayanan yang dapat diandalkan.</p>
+                <p class="hero-cta mt-6"><a class="btn primary hover:bg-[#E36F2F]" href="#products">Jelajahi Selengkapnya</a></p>
+              </div>
+              <div class="hero-slide flex-shrink-0 w-full text-center py-16 pb-2 px-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white">BAHAN BERKUALITAS <br /><span class="text-orange-400">HARGA TERJANGKAU</span></h1>
+                <p class="lead mt-4">Kami menyediakan berbagai macam bahan makanan berkualitas tinggi dengan harga yang kompetitif untuk mendukung bisnis Anda.</p>
+                <p class="hero-cta mt-6"><a class="btn primary hover:bg-[#E36F2F]" href="#products">Jelajahi Selengkapnya</a></p>
+              </div>
+              <div class="hero-slide flex-shrink-0 w-full text-center py-16 pb-2 px-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white">PENGIRIMAN CEPAT <br /><span class="text-orange-400">SELURUH INDONESIA</span></h1>
+                <p class="lead mt-4">Layanan pengiriman cepat dan aman ke seluruh wilayah Indonesia dengan armada yang handal dan terpercaya.</p>
+                <p class="hero-cta mt-6"><a class="btn primary hover:bg-[#E36F2F]" href="#products">Jelajahi Selengkapnya</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- hero controls-->
+          <button id="heroPrev" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">‹</button>
+          <button id="heroNext" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">›</button> 
+
+          <!-- dots -->
+          <div id="heroDots" class="flex justify-center gap-2 mt-6"></div>
+        </div>
+      </div>
+
+      <!-- floating images (animated) -->
+      <div class="floating-images pointer-events-none">
+        <img src="images/img-hero1.png" alt="product" class="f1 animate-float" />
+        <img src="images/img-hero2.png" alt="product" class="f2 animate-float-slow" />
+        <img src="images/img-hero3.png" alt="product" class="f3 animate-float" />
+        <img src="images/img-hero4.png" alt="product" class="f4 animate-float-slow" />
+        <img src="images/img-hero5.png" alt="product" class="f5 animate-float" />
+        <img src="images/img-hero6.png" alt="product" class="f6 animate-float-slow" />
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <div class="container">
+        <div class="section-header text-center mb-8">
+          <h2 class="text-4xl font-bold">Produk Unggulan Kami</h2>
+          <p class="muted">Semua produk kami dipilih dengan standar mutu tinggi dan didistribusikan dengan pengiriman cepat, tepat waktu, dan aman.</p>
+        </div>
+        <!-- Products carousel -->
+        <div class="relative">
+          <div id="productsCarousel" class="overflow-hidden">
+            <div class="products-track flex transition-transform duration-500 gap-4">
+              <article class="product flex-shrink-0 w-full md:w-1/3">
+                <div class="cover"><img src="images/img-product.png" alt="Tepung Roti Maissy" /></div>
+                <div class="inner">
+                  <h3 class="text-xl font-bold text-[#363636] px-4 mb-2">Tepung Roti Maissy</h3>
+                  <p class="muted px-4">Tepung roti premium dengan kualitas stabil, cocok untuk kebutuhan industri makanan, restoran, UMKM, hingga produksi skala besar.</p>
+                  <div class="actions">
+                    <a class="btn" href="#">Lihat Produk</a>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92002 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product flex-shrink-0 w-full md:w-1/3">
+                <div class="cover"><img src="images/img-product.png" alt="Bureo" /></div>
+                <div class="inner">
+                  <h3 class="text-xl font-bold text-[#363636] px-4 mb-2">Bureo</h3>
+                  <p class="muted px-4">Produk pelengkap berbasis biskuit yang dapat digunakan sebagai topping, isian, atau campuran adonan untuk berbagai kreasi makanan.</p>
+                  <div class="actions">
+                    <a class="btn" href="#">Lihat Produk</a>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92002 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product flex-shrink-0 w-full md:w-1/3">
+                <div class="cover"><img src="images/img-product.png" alt="Golden Nuts" /></div>
+                <div class="inner">
+                  <h3 class="text-xl font-bold text-[#363636] px-4 mb-2">Golden Nuts</h3>
+                  <p class="muted px-4">Bubuk kacang coklat dengan kualitas stabil, menghasilkan aroma dan warna coklat yang kuat.</p>
+                  <div class="actions">
+                    <a class="btn" href="#">Lihat Produk</a>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92002 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product flex-shrink-0 w-full md:w-1/3">
+                <div class="cover"><img src="images/img-product.png" alt="Tepung Panir" /></div>
+                <div class="inner">
+                  <h3 class="text-xl font-bold text-[#363636] px-4 mb-2">Tepung Panir</h3>
+                  <p class="muted px-4">Tepung panir berkualitas tinggi untuk berbagai kebutuhan gorengan dan makanan crispy dengan tekstur renyah sempurna.</p>
+                  <div class="actions">
+                    <a class="btn" href="#">Lihat Produk</a>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92002 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product flex-shrink-0 w-full md:w-1/3">
+                <div class="cover"><img src="images/img-product.png" alt="Coklat Compound" /></div>
+                <div class="inner">
+                  <h3 class="text-xl font-bold text-[#363636] px-4 mb-2">Coklat Compound</h3>
+                  <p class="muted px-4">Coklat compound premium untuk berbagai aplikasi pastry dan bakery dengan rasa coklat yang kaya dan lezat.</p>
+                  <div class="actions">
+                    <a class="btn" href="#">Lihat Produk</a>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92002 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product flex-shrink-0 w-full md:w-1/3">
+                <div class="cover"><img src="images/img-product.png" alt="Gula Halus" /></div>
+                <div class="inner">
+                  <h3 class="text-xl font-bold text-[#363636] px-4 mb-2">Gula Halus</h3>
+                  <p class="muted px-4">Gula halus berkualitas tinggi untuk berbagai kebutuhan pembuatan kue dan dessert dengan tekstur lembut.</p>
+                  <div class="actions">
+                    <a class="btn" href="#">Lihat Produk</a>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92202 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.125"/>
+                          <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+        <!-- Controls aligned with CTA -->
+        <div class="flex items-center justify-center gap-6 mt-10">
+          <button id="prodPrev" class="btn outline w-10 h-10 rounded-full text-4xl !p-0">
+            <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z"/>
+            </svg>
+          </button>
+          <a class="btn outline" href="#">Lihat Semua Produk</a>
+          <button id="prodNext" class="btn outline w-10 h-10 rounded-full text-4xl !p-0">
+            <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+            </svg>
+          </button>
+        </div>
+        <hr class="mt-16" />
+      </div>
+    </section>
+
+    <section class="how-to-order">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="text-4xl font-bold">Cara Pemesanan</h2>
+          <p class="muted">Proses pemesanan dibuat mudah untuk mendukung kebutuhan industri, UMKM, dan toko bahan kue.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3 class="text-xl">Tambahkan Produk ke Keranjang</h3>
+            <p>Pilih produk yang Anda butuhkan, kemudian tambahkan ke keranjang.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3 class="text-xl">Buka Keranjang & Lanjutkan Checkout</h3>
+            <p>Periksa kembali daftar pesanan Anda, lalu klik lanjutkan Checkout.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3 class="text-xl">Lengkapi Informasi Pribadi Anda</h3>
+            <p>Masukkan data kontak seperti nama, dan alamat untuk keperluan verifikasi.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3 class="text-xl">Admin Akan Menghubungi Anda</h3>
+            <p>Admin akan segera menghubungi Anda untuk memproses pesanan.</p>
+          </div>
+        </div>
+      </div>
+    </section>  
+
+    <!-- Partner CTA -->
+    <section class="partner-cta relative py-20 overflow-hidden bg-[#2B6730]">
+      <div class="container relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 min-h-[450px] items-center">
+          <div class="text-white mt-10 pt-5">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Mitra Distribusi Tepercaya untuk Industri Pangan</h2>
+            <p class="text-white/90 mb-8 text-lg">Kami membantu bisnis Anda berkembang melalui bahan berkualitas, respon cepat, dan pengiriman yang dapat diandalkan.</p>
+            <a class="btn !bg-[#fb923c] hover:!bg-[#E36F2F] !inline-flex items-center gap-2 !px-8" href="#products">
+              Belanja Sekarang              
+              <svg viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+                <path d="M2.89796 12.3412C2.25446 9.76725 1.93271 8.481 2.60846 7.6155C3.28421 6.75 4.61096 6.75 7.26371 6.75H10.7362C13.3897 6.75 14.7157 6.75 15.3915 7.6155C16.0672 8.481 15.7455 9.768 15.102 12.3412C14.6925 13.9785 14.4885 14.7967 13.878 15.2737C13.2675 15.75 12.4237 15.75 10.7362 15.75H7.26371C5.57621 15.75 4.73246 15.75 4.12196 15.2737C3.51146 14.7967 3.30671 13.9785 2.89796 12.3412Z" stroke="#fff" stroke-width="1.2"/>
+                <path d="M14.625 7.125L14.0925 5.17125C13.887 4.4175 13.7842 4.041 13.5735 3.75675C13.3634 3.47435 13.078 3.2568 12.75 3.129C12.42 3 12.03 3 11.25 3M3.375 7.125L3.9075 5.17125C4.113 4.4175 4.21575 4.041 4.4265 3.75675C4.63663 3.47435 4.92002 3.2568 5.25 3.129C5.58 3 5.97 3 6.75 3" stroke="#fff" stroke-width="1.2"/>
+                <path d="M6.75 3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3C11.25 3.19891 11.171 3.38968 11.0303 3.53033C10.8897 3.67098 10.6989 3.75 10.5 3.75H7.5C7.30109 3.75 7.11032 3.67098 6.96967 3.53033C6.82902 3.38968 6.75 3.19891 6.75 3Z" stroke="#fff" stroke-width="1.2"/>
+                <path d="M6 9.75V12.75M12 9.75V12.75M9 9.75V12.75" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="absolute bottom-[-65px] right-0 overflow-hidden">
+            <img src="images/img-ads.png" alt="product" class="w-full h-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20">
+      <div class="container">
+        <div class="flex flex-col md:flex-row items-start gap-12">
+          <div class="relative flex-shrink-0 w-full md:w-[450px]">
+            <div class="aspect-square rounded-2xl overflow-hidden">
+              <img src="./placeholder.svg" alt="About CV Adco Food" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="flex-1">
+            <h2 class="section-title text-3xl font-bold mb-6">Tentang CV Adco Food</h2>
+            <p class="text-muted-foreground mb-8"><span class="text-primary font-semibold">CV Adco Food</span> adalah distributor bahan makanan dan kue yang menyediakan berbagai produk untuk kebutuhan produksi, retail, dan UMKM. Kami menyalurkan bahan berkualitas dari produsen terpercaya ke industri makanan di seluruh Indonesia.</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"><img src="images/ic_value1.svg" alt="Adco Food Value"/></div>
+                <div><h4 class="font-semibold text-foreground">Pengalaman sejak 2008</h4><p class="text-muted-foreground">Lebih dari 15 tahun melayani industri makanan.</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"><img src="images/ic_value2.svg" alt="Adco Food Value"/></div>
+                <div><h4 class="font-semibold text-foreground">Kualitas Produk Terjamin</h4><p class="text-muted-foreground">Standar mutu konsisten & terpercaya untuk produksi Anda.</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"><img src="images/ic_value3.svg" alt="Adco Food Value"/></div>
+                <div><h4 class="font-semibold text-foreground">Pengiriman Cepat & Tepat Waktu</h4><p class="text-muted-foreground">Distribusi cepat dengan waktu pengiriman yang terjadwal.</p></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"><img src="images/ic_value4.svg" alt="Adco Food Value"/></div>
+                <div><h4 class="font-semibold text-foreground">Respon Cepat & Layanan Profesional</h4><p class="text-muted-foreground">Distribusi cepat dengan waktu pengiriman yang terjadwal.</p></div>
+              </div>
+            </div>
+            <a class="btn !bg-[#fb923c] hover:!bg-[#E36F2F]" href="#about">Selengkapnya Tentang Kami</a>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-12 border-t border-border">
+          <!-- Clients carousel: infinite marquee of client logos -->
+          <div class="clients-carousel">
+            <div class="clients-track" aria-hidden="false">
+              <div class="client-item"><img src="images/client1.png" alt="SEKARBUMI"/></div>
+              <div class="client-item"><img src="images/client2.png" alt="KMK"/></div>
+              <div class="client-item"><img src="images/client3.png" alt="ILM"/></div>
+              <div class="client-item"><img src="images/client4.png" alt="PT. PANGAN LESTARI"/></div>
+              <div class="client-item"><img src="images/client5.png" alt="CV. FENNY"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container text-center">
+      <div class="footer-logo">
+        <div class="logo-circle large"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+        <div class="logo-text mt-2">ADCO FOOD</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#home">HOME</a>
+        <a href="#products">KATALOG PRODUK</a>
+        <a href="#about">TENTANG KAMI</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <div class="contact-info">
+        <div class="inline-flex gap-2"><img src="images/ic_map.svg" alt="Adco Food Location"/>Jl. Arief Margono III A-53, Gn. Anyar, Surabaya, Jawa Timur</div>
+        <div class="inline-flex gap-2"><img src="images/ic_message.svg" alt="Adco Food Email"/>food.adco@gmail.com</div>
+        <div class="inline-flex gap-2"><img src="images/ic_call.svg" alt="Adco Food Phone"/>0812-3074-8200</div>
+      </div>
+      <hr class="my-6" />
+      <div class="flex justify-between items-center">
+        <p class="copyright text-sm">© 2016 Copyright - CV ADCO FOOD - All Right Reserved</p>
+        <ul class="inline-flex gap-8">
+          <li><a href="#" aria-label="X"><img width="22" src="images/ic_twitter.svg" alt="X"/></a></li>
+          <li><a href="#" aria-label="Facebook"><img width="22" src="images/ic_facebook.svg" alt="Facebook"/></a></li>
+          <li><a href="#" aria-label="Instagram"><img width="22" src="images/ic_instagram.svg" alt="Instagram"/></a></li>
+          <li><a href="#" aria-label="LinkedIn"><img width="22" src="images/ic_linkedin.svg" alt="LinkedIn"/></a></li>
+      </div>
+    </div>
+    <a class="whatsapp" href="https://wa.me/6281230748200" target="_blank" rel="noopener noreferrer"><img src="images/ic_wa.png" alt="WhatsApp"/></a>
+  </footer>
+  <!-- Mobile menu overlay + off-canvas menu -->
+  <div id="menuOverlay" class="menu-overlay hidden"></div>
+  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true" aria-labelledby="menuToggle">
+    <div class="mobile-menu-inner p-6">
+      <div class="flex items-center justify-between mb-6">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+          <span class="logo-text">ADCO FOOD</span>
+        </a>
+        <button id="menuClose" aria-label="Close menu" class="p-2 text-2xl">×</button>
+      </div>
+      <ul class="flex flex-col gap-4">
+        <li><a href="#home" class="block py-2">HOME</a></li>
+        <li><a href="#products" class="block py-2">KATALOG PRODUK</a></li>
+        <li><a href="#about" class="block py-2">TENTANG KAMI</a></li>
+        <li><a href="#contact" class="block py-2">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+  <script src="script/script.js"></script>
+</body>
+</html>
