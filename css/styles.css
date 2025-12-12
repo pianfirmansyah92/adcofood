@@ -23,10 +23,24 @@ p{margin-bottom:1rem;line-height:1.6;}
 .nav-right{display:flex;align-items:center;z-index:10;}
 .nav-links{display:none;list-style:none;gap:6rem}
 .icons{position:absolute; right: 0; display: flex; align-items: center;}
-.icon-btn{background:var(--bg);border:0;padding:.45rem;border-radius:9999px;cursor:pointer;position:relative}
+.icon-btn{background:var(--bg);border:0;padding:.5rem;border-radius:9999px;cursor:pointer;position:relative}
 .icon-btn + .icon-btn{background: #2C6F31; margin-left: 10px;}
-.icon-btn img{width:22px;height:22px}
+.icon-btn img{width:24px;height:24px}
 .icon-btn .badge{position:absolute;top:-6px;left:-6px;background:#DC402C;color:var(--primary-foreground);width:20px;height:20px;border-radius:9999px;font-size:11px;display:flex;align-items:center;justify-content:center}
+@media (max-width: 1535px) {
+  .site-header .container::before{margin:25px 10rem 0;}
+}
+@media (max-width: 1279px) {
+  .nav-left, .nav-links{gap:4rem;}
+  .logo{margin:0 2rem}
+  .site-header .container::before{margin:25px 8rem 0;}
+}
+@media (max-width: 1024px) {
+  .site-header .container::before{display: none;}
+}
+@media (max-width: 1024px) {
+  .site-header{padding:0 2rem}
+}
 
 /* Hero */
 .hero{min-height:65vh;background:linear-gradient(to bottom left,#50a556 0%,#216726 100%);padding-top:96px;position:relative;overflow:hidden}
@@ -117,13 +131,14 @@ p{margin-bottom:1rem;line-height:1.6;}
 .footer-nav a{text-decoration:none;color:#525252;font-weight:600}
 .footer-nav a:hover{text-decoration:underline;}
 .contact-info{display:flex;justify-content:center;gap:2rem;color:#6B6B6B;text-align:center;margin-top:1rem}
+.contact-info img{width: 16px;}
 .site-footer hr{border:none;border-top:2px dashed rgba(0,0,0,0.1)}
 .site-footer .copyright{margin-top:1rem;color:var(--muted)}
 .whatsapp{position:fixed;right:1.5rem;bottom:1.5rem;width:56px;height:56px;border-radius:9999px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.25rem}
 
 
 /* Responsive */
-@media(min-width:768px){
+@media(min-width:1024px){
   .nav-left{display:flex}
   .nav-links{display:flex}
   .hero h1{font-size:3.5rem}
@@ -132,13 +147,43 @@ p{margin-bottom:1rem;line-height:1.6;}
   .product-grid{grid-template-columns:repeat(3,1fr)}
 }
 
+/* Footer: responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .contact-info{
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+    text-align:center;
+  }
+  .contact-info .inline-flex{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+  }
+  /* Stack the bottom copyright/social row and center items */
+  .site-footer .flex.justify-between.items-center{
+    flex-direction:column;
+    gap:0.75rem;
+    align-items:center;
+  }
+  /* Give footer links a bit more breathing room on small screens */
+  .footer-nav{gap:1rem}
+}
+
 /* Mobile menu overlay and off-canvas panel */
 .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:60;opacity:1;transition:opacity .25s}
 .menu-overlay.hidden{opacity:0;pointer-events:none}
 .mobile-menu{position:fixed;right:0;top:0;height:100%;width:320px;max-width:90%;background:#fff;z-index:70;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.9,.2,1);box-shadow:-8px 0 30px rgba(2,6,23,.15)}
 .mobile-menu[aria-hidden="false"]{transform:translateX(0)}
 .mobile-menu-inner{height:100%;display:flex;flex-direction:column}
+.mobile-menu .logo-text{font-family: "Noto Sans", sans-serif;font-size:18px;font-weight:800;letter-spacing:1px;color:#216726;white-space:nowrap}
+.mobile-menu .menu-close{color:#525252;position:absolute;top:20px;right:20px;background-color:rgba(0,0,0,0.1);width:40px;height:40px;border-radius:50%;font-size:1.7rem;padding-top:2px;}
+.mobile-menu ul li a{color:#525252;font-weight:600;}
 
 /* ensure header buttons show/hide correctly when tailwind utilities are present */
-.md\:hidden{display:block}
-@media(min-width:768px){.md\:hidden{display:none}}
+.btn-menu-toggle{display:block}
+@media(min-width:1024px){
+  .btn-menu-toggle{display:none}
+}
+.btn-menu-toggle{background:#2C6F31;border:0;padding:.5rem;border-radius:50px;cursor:pointer;font-size:1.4rem;line-height:1;color:var(--fg);position:absolute;left:0;width:40px;height:40px;}

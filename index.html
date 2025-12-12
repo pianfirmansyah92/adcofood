@@ -15,6 +15,8 @@
 <body>
   <header class="site-header">
     <div class="container nav relative">
+      <!-- Mobile menu toggle (visible on small screens) -->
+      <button id="menuToggle" class="btn-menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open main menu">☰</button>
       <ul class="nav-left">
         <li><a href="#home">HOME</a></li>
         <li><a href="#products">KATALOG PRODUK</a></li>
@@ -31,8 +33,6 @@
         <div class="icons">
           <button aria-label="cart" class="icon-btn"><img src="images/ic_cart.svg" alt="Cart"><span class="badge">0</span></button>
           <button aria-label="user" class="icon-btn"><img src="images/ic_user.svg" alt="User"></button>
-          <!-- Mobile menu toggle (visible on small screens) -->
-          <button id="menuToggle" class="md:hidden ml-2 p-2 rounded-md text-lg" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open main menu">☰</button>
         </div>
       </div>
     </div>
@@ -347,7 +347,7 @@
       </div>
       <hr class="my-6" />
       <div class="flex justify-between items-center">
-        <p class="copyright text-sm">© 2016 Copyright - CV ADCO FOOD - All Right Reserved</p>
+        <p class="copyright text-sm">© 2026 Copyright - CV ADCO FOOD - All Right Reserved</p>
         <ul class="inline-flex gap-8">
           <li><a href="#" aria-label="X"><img width="22" src="images/ic_twitter.svg" alt="X"/></a></li>
           <li><a href="#" aria-label="Facebook"><img width="22" src="images/ic_facebook.svg" alt="Facebook"/></a></li>
@@ -361,12 +361,12 @@
   <div id="menuOverlay" class="menu-overlay hidden"></div>
   <nav id="mobileMenu" class="mobile-menu" aria-hidden="true" aria-labelledby="menuToggle">
     <div class="mobile-menu-inner p-6">
-      <div class="flex items-center justify-between mb-6">
-        <a href="#home" class="flex items-center gap-3">
+      <div class="flex items-center justify-center mb-6">
+        <a href="#home" class="flex flex-col items-center gap-3">
           <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
           <span class="logo-text">ADCO FOOD</span>
         </a>
-        <button id="menuClose" aria-label="Close menu" class="p-2 text-2xl">×</button>
+        <button id="menuClose" aria-label="Close menu" class="menu-close">×</button>
       </div>
       <ul class="flex flex-col gap-4">
         <li><a href="#home" class="block py-2">HOME</a></li>
