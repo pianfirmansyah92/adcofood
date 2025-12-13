@@ -34,21 +34,25 @@
   renderHero();
   resetHeroTimer();
 
-  // Products carousel (shows 1 on mobile, 3 on md+)
+  // Products carousel (1 on mobile, 2 on tablet, 3 on desktop)
   const prod = document.getElementById('productsCarousel');
   const prodTrack = prod.querySelector('.products-track');
   const prodItems = Array.from(prodTrack.children);
   const prodPrev = document.getElementById('prodPrev');
   const prodNext = document.getElementById('prodNext');
   let prodIndex = 0;
-
-  function slidesPerView(){ return window.matchMedia('(min-width:768px)').matches ? 3 : 1 }
+  function slidesPerView(){
+    if(window.matchMedia('(min-width:1024px)').matches) return 3;
+    if(window.matchMedia('(min-width:768px)').matches) return 2;
+    return 1;
+  }
     // compute pixel widths so transforms are accurate with gap
     function updateProducts(){
       const spv = slidesPerView();
       const containerWidth = prod.clientWidth;
-      // CSS gap between items (in px) — we set gap:16px in markup via tailwind-like gap-4 -> 1rem; approximate 16px
-      const gap = 16;
+      // read actual gap from CSS for accuracy (fallback to 16px)
+      const computed = getComputedStyle(prodTrack);
+      const gap = parseFloat(computed.gap) || parseFloat(computed.columnGap) || 16;
       const totalGap = (spv - 1) * gap;
       const itemWidth = Math.floor((containerWidth - totalGap) / spv);
 
