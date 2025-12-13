@@ -1,51 +1,56 @@
 // Lightweight carousel for hero and products
 (function(){
-  // Hero carousel
+  // Hero carousel (only initialize when element exists)
   const hero = document.getElementById('heroCarousel');
-  const heroTrack = hero.querySelector('.hero-track');
-  const heroSlides = Array.from(heroTrack.children);
-  const heroPrev = document.getElementById('heroPrev');
-  const heroNext = document.getElementById('heroNext');
-  const heroDots = document.getElementById('heroDots');
-  let heroIndex = 0;
-  const heroCount = heroSlides.length;
-  let heroInterval = null;
+  if(hero){
+    const heroTrack = hero.querySelector('.hero-track');
+    const heroSlides = Array.from(heroTrack.children);
+    const heroPrev = document.getElementById('heroPrev');
+    const heroNext = document.getElementById('heroNext');
+    const heroDots = document.getElementById('heroDots');
+    let heroIndex = 0;
+    const heroCount = heroSlides.length;
+    let heroInterval = null;
 
-  function renderHero(){
-    heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
-    // dots
-    heroDots.innerHTML = '';
-    for(let i=0;i<heroCount;i++){
-      const btn = document.createElement('button');
-      btn.className = 'w-2 h-2 rounded-full ' + (i===heroIndex? 'bg-orange-400 w-8':'bg-white/40');
-      btn.addEventListener('click', ()=>{ heroIndex=i; updateHero(); resetHeroTimer(); });
-      heroDots.appendChild(btn);
+    function renderHero(){
+      heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+      // dots
+      if(heroDots) {
+        heroDots.innerHTML = '';
+        for(let i=0;i<heroCount;i++){
+          const btn = document.createElement('button');
+          btn.className = 'w-2 h-2 rounded-full ' + (i===heroIndex? 'bg-orange-400 w-8':'bg-white/40');
+          btn.addEventListener('click', ()=>{ heroIndex=i; updateHero(); resetHeroTimer(); });
+          heroDots.appendChild(btn);
+        }
+      }
     }
+
+    function updateHero(){ renderHero(); }
+    function prevHero(){ heroIndex = (heroIndex-1+heroCount)%heroCount; updateHero(); }
+    function nextHero(){ heroIndex = (heroIndex+1)%heroCount; updateHero(); }
+    function resetHeroTimer(){ clearInterval(heroInterval); heroInterval = setInterval(nextHero,5000); }
+
+    heroPrev && heroPrev.addEventListener('click', ()=>{ prevHero(); resetHeroTimer(); });
+    heroNext && heroNext.addEventListener('click', ()=>{ nextHero(); resetHeroTimer(); });
+
+    renderHero();
+    resetHeroTimer();
   }
-
-  function updateHero(){ renderHero(); }
-  function prevHero(){ heroIndex = (heroIndex-1+heroCount)%heroCount; updateHero(); }
-  function nextHero(){ heroIndex = (heroIndex+1)%heroCount; updateHero(); }
-  function resetHeroTimer(){ clearInterval(heroInterval); heroInterval = setInterval(nextHero,5000); }
-
-  heroPrev.addEventListener('click', ()=>{ prevHero(); resetHeroTimer(); });
-  heroNext.addEventListener('click', ()=>{ nextHero(); resetHeroTimer(); });
-
-  renderHero();
-  resetHeroTimer();
 
   // Products carousel (1 on mobile, 2 on tablet, 3 on desktop)
   const prod = document.getElementById('productsCarousel');
-  const prodTrack = prod.querySelector('.products-track');
-  const prodItems = Array.from(prodTrack.children);
-  const prodPrev = document.getElementById('prodPrev');
-  const prodNext = document.getElementById('prodNext');
-  let prodIndex = 0;
-  function slidesPerView(){
-    if(window.matchMedia('(min-width:1024px)').matches) return 3;
-    if(window.matchMedia('(min-width:768px)').matches) return 2;
-    return 1;
-  }
+  if(prod){
+    const prodTrack = prod.querySelector('.products-track');
+    const prodItems = Array.from(prodTrack.children);
+    const prodPrev = document.getElementById('prodPrev');
+    const prodNext = document.getElementById('prodNext');
+    let prodIndex = 0;
+    function slidesPerView(){
+      if(window.matchMedia('(min-width:1024px)').matches) return 3;
+      if(window.matchMedia('(min-width:768px)').matches) return 2;
+      return 1;
+    }
     // compute pixel widths so transforms are accurate with gap
     function updateProducts(){
       const spv = slidesPerView();
@@ -75,6 +80,7 @@
     window.addEventListener('resize', updateProducts);
     // initial layout after images/DOM available
     setTimeout(updateProducts, 50);
+  }
 })();
 
 // Mobile menu: open/close handlers
@@ -119,14 +125,19 @@
   const heroSection = document.querySelector('.hero');
   if(!header || !heroSection) return;
 
-  window.addEventListener('scroll', ()=>{
+  // Simple scroll-based handler: add `scrolled` when window scroll passes hero height.
+  function onScroll(){
     const heroHeight = heroSection.offsetHeight;
     if(window.scrollY > heroHeight){
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-  });
+  }
+
+  window.addEventListener('scroll', onScroll);
+  // initial check in case page loads already scrolled
+  onScroll();
 })();
 
 // Clients marquee: JS-driven infinite carousel that clones items to avoid gaps

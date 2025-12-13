@@ -44,6 +44,7 @@ p{margin-bottom:1rem;line-height:1.6;}
 
 /* Hero */
 .hero{min-height:65vh;background:linear-gradient(to bottom left,#50a556 0%,#216726 100%);padding-top:96px;position:relative;overflow:hidden}
+.hero.page-title{padding:120px 0 80px;min-height: 475px;}
 .hero::before{content:"";position:absolute;inset:0;background:url('../images/bg-hero.png') no-repeat top left;}
 .hero::after{content:"";width:100%;height:100%;position:absolute;bottom:-2px;background:url('../images/bg-wave-hero.svg') no-repeat bottom;background-size: 100%}
 .hero-content{position:relative;z-index:10;padding:4rem 0;text-align:center}
@@ -100,6 +101,18 @@ p{margin-bottom:1rem;line-height:1.6;}
 .step:nth-child(even) h3{margin-bottom:.5rem;color:var(--primary)}
 .step p{color:var(--muted);font-size:.95rem;line-height:1.5}
 
+/* Aside steps: reuse how-to-order step look but scale for narrow aside */
+.aside-steps{display:flex;flex-direction:column;gap:0.75rem}
+.aside-steps .step{display:flex;align-items:flex-start;gap:1rem;padding:0;text-align:left;}
+.aside-steps .step-num{width:44px;height:44px;padding:1rem;border-radius:50%;border:2px solid var(--secondary);display:flex;align-items:center;justify-content:center;background:#fff;color:var(--secondary);font-weight:700;font-size:1rem}
+.aside-steps .step h4{margin:0 0 .25rem 0;color:#595959;font-weight:600}
+.aside-steps .step p{margin:0;color:#52605a;font-size:.95rem}
+
+@media (max-width: 768px){
+  .aside-steps .step{gap:.5rem}
+  .aside-steps .step-num{width:40px;height:40px;font-size:.95rem;border-width:2px}
+}
+
 /* About section: make title, muted text and grid content darker */
 #about .section-title{color:var(--secondary)}
 #about .text-muted-foreground{color:#545454}
@@ -110,6 +123,7 @@ p{margin-bottom:1rem;line-height:1.6;}
 /* Partner CTA */
 .partner-cta::before{content:"";width:100%;height:100%;position:absolute;top:-5px;background:url('../images/bg-wave-order.svg') no-repeat top center;background-size: 100%}
 .partner-cta::after{content:"";width:100%;height:100%;position:absolute;bottom:-5px;background:url('../images/bg-wave-marketing.svg') no-repeat bottom center;background-size: 100%}
+.partner-cta.second::after{display: none;}
 
 /* Clients carousel (JS-driven infinite marquee) */
 .clients-carousel{overflow:hidden;padding:1.25rem 0}
@@ -123,7 +137,7 @@ p{margin-bottom:1rem;line-height:1.6;}
 }
 
 /* Footer */
-.site-footer{background:var(--cream-dark);padding:3rem 0;margin-top:2rem}
+.site-footer{background:var(--cream-dark);padding:3rem 0;}
 .footer-logo{display:flex;flex-direction:column;align-items:center;margin-bottom:1rem}
 .logo-circle.large img{width:80px;height:80px}
 .footer-logo .logo-text{font-family: "Noto Sans", sans-serif;font-size:18px;font-weight:800;letter-spacing:1px;color:#525252;white-space:nowrap}
