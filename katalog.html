@@ -16,17 +16,17 @@
     <div class="container nav relative">
       <button id="menuToggle" class="btn-menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open main menu">☰</button>
       <ul class="nav-left">
-        <li><a href="index.html#home">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="katalog.html">KATALOG PRODUK</a></li>
       </ul>
-      <a class="logo" href="index.html#home">
+      <a class="logo" href="index.html">
         <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
         <span class="logo-text">ADCO FOOD</span>
       </a>
       <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="index.html#about">TENTANG KAMI</a></li>
-          <li><a href="index.html#contact">CONTACT</a></li>
+          <li><a href="about.html">TENTANG KAMI</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
         </ul>
         <div class="icons">
           <button aria-label="cart" class="icon-btn"><img src="images/ic_cart.svg" alt="Cart"><span class="badge">0</span></button>
@@ -45,22 +45,46 @@
   </section>
 
   <main>
-    <div class="container py-12 grid md:grid-cols-4 gap-8">
+    <div class="container py-12 grid lg:grid-cols-4 gap-8">
       <!-- Aside (left column) -->
-      <aside class="md:col-span-1">
+      <aside class="lg:col-span-1">
         <div class="mb-6">
           <h4 class="font-semibold text-xl text-[#216726] mb-3">KATEGORI PRODUK</h4>
-          <ul class="text-sm text-[#525252]">
-            <li class="py-2"><a href="#">Semua Kategori</a></li>
-            <li class="py-2"><a href="#">Tepung Roti</a></li>
-            <li class="py-2"><a href="#">Golden Nuts</a></li>
-            <li class="py-2"><a href="#">Pinatsu</a></li>
-            <li class="py-2"><a href="#">Mayo</a></li>
-            <li class="py-2"><a href="#">Bureo</a></li>
+          <ul class="text-[#525252] list-category">
+            <li class="py-2"><a href="#" class="active">Semua Kategori 
+              <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+              </svg></a>
+            </li>
+            <li class="py-2"><a href="#">Tepung Roti
+              <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+              </svg></a>
+            </li>
+            <li class="py-2"><a href="#">Golden Nuts
+              <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+              </svg></a>
+            </li>
+            <li class="py-2"><a href="#">Pinatsu
+              <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+              </svg></a>
+            </li>
+            <li class="py-2"><a href="#">Mayo
+              <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+              </svg></a>
+            </li>
+            <li class="py-2"><a href="#">Bureo
+              <svg viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"/>
+              </svg></a>
+            </li>
           </ul>
         </div>
-
-        <div class="mb-6">
+        <hr class="my-6" />
+        <div class="mb-6 hidden lg:block">
           <h4 class="font-semibold text-xl text-[#216726] mb-3">CARA PEMESANAN</h4>
           <div class="steps aside-steps">
             <div class="step">
@@ -93,8 +117,8 @@
             </div>
           </div>
         </div>
-
-        <div>
+        <hr class="my-6" />
+        <div class="hidden lg:block">
           <h4 class="font-semibold text-xl text-[#216726] mb-3">ADCO FOOD VALUE</h4>
           <div class="grid gap-4 mb-8">
               <div class="flex items-start gap-3">
@@ -118,8 +142,8 @@
       </aside>
 
       <!-- Main product grid -->
-      <section class="md:col-span-3">
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+      <section class="lg:col-span-3">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 product-grid">
           <!-- Repeat product card (sample) -->
           <article class="product">
             <div class="cover"><img src="images/img-product.png" alt="Product 1" /></div>
@@ -299,7 +323,7 @@
     <!-- Marketing CTA similar to home -->
     <section class="partner-cta second relative py-16 overflow-hidden bg-[#2B6730] mt-8">
       <div class="container relative z-10">
-        <div class="grid md:grid-cols-2 gap-12 min-h-[320px] items-end">
+        <div class="grid md:grid-cols-2 gap-12 md:min-h-[320px] items-end">
           <div class="text-white mt-6 pt-2">
             <h2 class="text-2xl md:text-3xl font-bold mb-4">Siap Pesan?</h2>
             <p class="text-white/90 mb-4">Hubungi tim kami untuk konsultasi produk dan kebutuhan pengiriman.</p>

@@ -81,6 +81,69 @@
     // initial layout after images/DOM available
     setTimeout(updateProducts, 50);
   }
+
+  // Testimonials carousel (1 on mobile, 2 on desktop)
+  const test = document.getElementById('testimonialsCarousel');
+  if(test){
+    const testTrack = test.querySelector('.testimonials-track');
+    const testItems = Array.from(testTrack.children);
+    const testDotsContainer = document.getElementById('testDots');
+    let testIndex = 0;
+    let testInterval = null;
+
+    function slidesPerViewTest(){
+      if(window.matchMedia('(min-width:768px)').matches) return 2;
+      return 1;
+    }
+
+    function updateTestimonials(){
+      const spv = slidesPerViewTest();
+      const containerWidth = test.clientWidth;
+      const computed = getComputedStyle(testTrack);
+      const gap = parseFloat(computed.gap) || parseFloat(computed.columnGap) || 16;
+      const totalGap = (spv - 1) * gap;
+      const itemWidth = Math.floor((containerWidth - totalGap) / spv);
+
+      testItems.forEach(item=>{
+        item.style.width = `${itemWidth}px`;
+        item.style.flex = `0 0 ${itemWidth}px`;
+      });
+
+      const spvVal = slidesPerViewTest();
+      const maxIndex = Math.max(0, testItems.length - spvVal);
+      if(testIndex > maxIndex) testIndex = maxIndex;
+
+      const offset = (itemWidth + gap) * testIndex * -1;
+      testTrack.style.transform = `translateX(${offset}px)`;
+
+      // update dots
+      if(testDotsContainer){
+        testDotsContainer.innerHTML = '';
+        const numDots = Math.ceil(testItems.length / spvVal);
+        for(let i=0; i<numDots; i++){
+          const dot = document.createElement('button');
+          dot.className = 'w-2 h-2 rounded-full ' + (i===testIndex ? 'bg-[#308136] w-8' : 'bg-gray-300');
+          dot.addEventListener('click', ()=>{ testIndex=i; updateTestimonials(); resetTestimonialTimer(); });
+          testDotsContainer.appendChild(dot);
+        }
+      }
+    }
+
+    function nextTestimonial(){
+      const spv = slidesPerViewTest();
+      const maxIndex = Math.max(0, testItems.length - spv);
+      testIndex = (testIndex + 1) > maxIndex ? 0 : testIndex + 1;
+      updateTestimonials();
+    }
+
+    function resetTestimonialTimer(){
+      clearInterval(testInterval);
+      testInterval = setInterval(nextTestimonial, 5000);
+    }
+
+    window.addEventListener('resize', updateTestimonials);
+    setTimeout(()=>{ updateTestimonials(); resetTestimonialTimer(); }, 50);
+  }
 })();
 
 // Mobile menu: open/close handlers

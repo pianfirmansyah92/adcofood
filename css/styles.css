@@ -64,6 +64,10 @@ p{margin-bottom:1rem;line-height:1.6;}
 .f6{left:0;bottom:8rem;}
 #heroPrev,#heroNext{display:none;}
 
+@media (max-width: 1023px){
+.hero.page-title{min-height: 125px;padding-bottom:20px;}
+}
+
 /* Floating animations (used on hero images) */
 .animate-float{animation:float 5s ease-in-out infinite}
 .animate-float-slow{animation:float 8s ease-in-out infinite}
@@ -104,7 +108,7 @@ p{margin-bottom:1rem;line-height:1.6;}
 /* Aside steps: reuse how-to-order step look but scale for narrow aside */
 .aside-steps{display:flex;flex-direction:column;gap:0.75rem}
 .aside-steps .step{display:flex;align-items:flex-start;gap:1rem;padding:0;text-align:left;}
-.aside-steps .step-num{width:44px;height:44px;padding:1rem;border-radius:50%;border:2px solid var(--secondary);display:flex;align-items:center;justify-content:center;background:#fff;color:var(--secondary);font-weight:700;font-size:1rem}
+.aside-steps .step-num{width:44px;height:44px;padding:1rem;border-radius:50%;border: 0 !important;;display:flex;align-items:center;justify-content:center;background:#fff;color:#488F4D !important;font-weight:700;font-size:1rem;margin: 0;background: #fff;}
 .aside-steps .step h4{margin:0 0 .25rem 0;color:#595959;font-weight:600}
 .aside-steps .step p{margin:0;color:#52605a;font-size:.95rem}
 
@@ -231,3 +235,22 @@ p{margin-bottom:1rem;line-height:1.6;}
   #about .grid{grid-template-columns:repeat(1,1fr)}
   #about .grid > div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem}
 }
+
+/* Between 1024px and 1279px: use 2 columns for main product grid */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* List Category*/
+.list-category li a{margin-bottom:5px;display:flex; justify-content: space-between;}
+.list-category li a svg{width:18px;margin-right:8px;fill: #888888;}
+.list-category li a.active{color: #308136;font-weight:600;}
+.list-category li a.active svg{fill: #308136;}
+
+/* Testimoni cards */
+.testimoni .inner{min-height:280px;background:#E6E8DF;border-radius:16px;overflow:hidden;padding:1.5rem;margin-top:0;}
+.testimoni img{border-radius:8px;}
+.testimoni .flex span{color:#fb923c;}
+.testimoni .font-semibold{font-size:1rem;color:#1a1a1a;}
+.testimoni .text-xs{font-size:0.8rem;color:#525252;}
+.testimoni .muted{font-size:0.95rem;color:#434343;}
