@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - CV ADCO FOOD</title>
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav relative">
+      <button id="menuToggle" class="btn-menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open main menu">☰</button>
+      <ul class="nav-left">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="katalog.html">KATALOG PRODUK</a></li>
+      </ul>
+      <a class="logo" href="index.html">
+        <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+        <span class="logo-text">ADCO FOOD</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="about.html">TENTANG KAMI</a></li>
+          <li><a href="contact.html">KONTAK</a></li>
+        </ul>
+        <div class="icons">
+          <button aria-label="cart" class="icon-btn"><img src="images/ic_cart.svg" alt="Cart"><span class="badge">0</span></button>
+          <button aria-label="user" class="icon-btn"><img src="images/ic_user.svg" alt="User"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Page title -->
+  <section class="hero page-title">
+    <div class="container hero-content">
+      <h1 class="text-4xl md:text-6xl font-bold text-white">KONTAK</h1>
+      <p class="lead mt-4">Kami siap membantu. Hubungi kami atau kunjungi lokasi Adco Food melalui informasi di bawah ini.</p>
+    </div>
+  </section>
+
+  <main>    
+    <div class="container py-12 grid lg:grid-cols-3 gap-8">
+      <div class="flex flex-col gap-6">
+        <!-- Address Card -->
+        <div class="bg-[#E6E8DF] rounded-2xl p-6 min-h-[200px]">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center"><img src="images/ic_map.svg" alt="Adco Food Location"/></div>
+            <p class="font-medium text-[#525252]">Alamat Kantor</p>
+          </div>
+          <p class="text-sm text-[#525252] leading-relaxed">
+          <b>CV Adco Food</b><br />
+          Jl. Arief Margono III A-53, Gn. Anyar<br />
+          Surabaya, Jawa Timur<br />
+          Indonesia
+          </p>
+        </div>
+
+
+        <!-- Call Card -->
+        <div class="bg-[#E6E8DF] text-white rounded-2xl p-6 min-h-[140px]">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center"><img src="images/ic_call.svg" alt="Adco Food Phone"/></div>
+            <p class="font-medium text-[#525252]">Telepon</p>
+          </div>
+          <p class="text-2xl text-[#525252] font-bold tracking-wide">0812 - 3074 - 8200</p>
+        </div>
+
+
+        <!-- Email Card -->
+        <div class="bg-[#E6E8DF] rounded-2xl p-6 min-h-[140px]">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center"><img src="images/ic_message.svg" alt="Adco Food Email"/></div>
+            <p class="font-medium text-[#525252]">Email</p>
+          </div>
+          <p class="text-lg font-semibold text-[#525252]">food.adco@gmail.com</p>
+        </div>
+      </div>
+      <!-- Right Map -->
+      <div class="lg:col-span-2 bg-white border rounded-2xl overflow-hidden ">
+        <div class="w-full h-full min-h-[400px]">
+          <iframe
+          src="https://www.google.com/maps?q=Surabaya,+Jawa+Timur,+Indonesia&output=embed"
+          class="w-full h-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marketing CTA similar to home -->
+    <section class="partner-cta second relative py-16 overflow-hidden bg-[#2B6730] mt-8">
+      <div class="container relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 md:min-h-[320px] items-end">
+          <div class="text-white mt-6 pt-2">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Siap Pesan?</h2>
+            <p class="text-white/90 mb-4">Hubungi tim kami untuk konsultasi produk dan kebutuhan pengiriman.</p>
+            <a class="btn !bg-[#fb923c] hover:!bg-[#E36F2F] !inline-flex items-center gap-2 !px-6" href="#">
+              Chat WhatsApp
+            </a>
+          </div>
+          <div class="absolute bottom-[-85px] right-0 overflow-hidden hidden md:block">
+            <img src="images/img-cs.png" alt="product" class="w-[354px] object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: reuse from index.html -->
+  <footer id="contact" class="site-footer">
+    <div class="container text-center">
+      <div class="footer-logo">
+        <div class="logo-circle large"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+        <div class="logo-text mt-2">ADCO FOOD</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#home">HOME</a>
+        <a href="katalog.html">KATALOG PRODUK</a>
+        <a href="index.html#about">TENTANG KAMI</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+      <div class="contact-info">
+        <div class="inline-flex gap-2"><img src="images/ic_map.svg" alt="Adco Food Location"/>Jl. Arief Margono III A-53, Gn. Anyar, Surabaya</div>
+        <div class="inline-flex gap-2"><img src="images/ic_message.svg" alt="Adco Food Email"/>food.adco@gmail.com</div>
+        <div class="inline-flex gap-2"><img src="images/ic_call.svg" alt="Adco Food Phone"/>0812-3074-8200</div>
+      </div>
+      <hr class="my-6" />
+      <div class="flex justify-between items-center">
+        <p class="copyright text-sm">© 2016 Copyright - CV ADCO FOOD - All Right Reserved</p>
+        <ul class="inline-flex gap-8">
+          <li><a href="#" aria-label="X"><img width="22" src="images/ic_twitter.svg" alt="X"/></a></li>
+          <li><a href="#" aria-label="Facebook"><img width="22" src="images/ic_facebook.svg" alt="Facebook"/></a></li>
+          <li><a href="#" aria-label="Instagram"><img width="22" src="images/ic_instagram.svg" alt="Instagram"/></a></li>
+          <li><a href="#" aria-label="LinkedIn"><img width="22" src="images/ic_linkedin.svg" alt="LinkedIn"/></a></li>
+        </ul>
+      </div>
+    </div>
+    <a class="whatsapp" href="https://wa.me/6281230748200" target="_blank" rel="noopener noreferrer"><img src="images/ic_wa.png" alt="WhatsApp"/></a>
+  </footer>
+
+  <div id="menuOverlay" class="menu-overlay hidden"></div>
+  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true" aria-labelledby="menuToggle">
+    <div class="mobile-menu-inner p-6">
+      <div class="flex items-center justify-center mb-6">
+        <a href="index.html" class="flex flex-col items-center gap-3">
+          <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+          <span class="logo-text">ADCO FOOD</span>
+        </a>
+        <button id="menuClose" aria-label="Close menu" class="menu-close">×</button>
+      </div>
+      <ul class="flex flex-col gap-4">
+        <li><a href="index.html" class="block py-2">HOME</a></li>
+        <li><a href="katalog.html" class="block py-2">KATALOG PRODUK</a></li>
+        <li><a href="about.html" class="block py-2">TENTANG KAMI</a></li>
+        <li><a href="contact.html" class="block py-2">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script src="script/script.js"></script>
+</body>
+</html>
