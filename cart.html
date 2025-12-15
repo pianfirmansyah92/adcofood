@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keranjang Belanja - CV ADCO FOOD</title>
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav relative">
+      <button id="menuToggle" class="btn-menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open main menu">☰</button>
+      <ul class="nav-left">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="katalog.html">KATALOG PRODUK</a></li>
+      </ul>
+      <a class="logo" href="index.html">
+        <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+        <span class="logo-text">ADCO FOOD</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="about.html">TENTANG KAMI</a></li>
+          <li><a href="contact.html">KONTAK</a></li>
+        </ul>
+        <div class="icons">
+          <a href="cart.html" aria-label="cart" class="icon-btn"><img src="images/ic_cart.svg" alt="Cart"><span class="badge">0</span></a>
+          <button aria-label="user" class="icon-btn"><img src="images/ic_user.svg" alt="User"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Page title -->
+  <section class="hero page-title">
+    <div class="container hero-content">
+      <h1 class="text-4xl md:text-6xl font-bold text-white">Keranjang Belanja</h1>
+      <p class="lead mt-4">Periksa kembali pesanan Anda sebelum melanjutkan ke proses pemesanan.</p>
+    </div>
+  </section>
+
+  <main>    
+    <div class="container py-12 grid lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-8 space-y-4 md:space-y-6">
+
+        <!-- Cart Item -->
+        <div class="cart-item bg-[#E6E8DF] rounded-xl p-4 flex flex-col gap-3 md:flex-row md:gap-4 md:items-center">
+
+          <!-- Image -->
+          <div class="flex items-start w-full gap-3">
+            <div class="flex-shrink-0">
+              <img src="images/img-product.png" alt="Product" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover">
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 min-w-0 pr-[40px]">
+              <h3 class="font-semibold text-gray-800 text-sm md:text-base">
+                Panko Crispy – Tepung Roti Premium
+              </h3>
+              <p class="text-xs md:text-sm text-gray-500">Variant: White / Mix / Orange</p>
+              <p class="text-xs md:text-sm text-gray-500">Berat: 10kg</p>
+            </div>
+          </div>
+
+          <!-- Quantity & Delete (flex row on mobile, flex col on desktop) -->
+          <div class="flex md:flex-col items-center md:items-end gap-3 md:gap-2 md:border-r md:border-[#c6c9bc] md:pr-4">
+            <div class="qty-control flex items-center gap-3 bg-white rounded-full px-3 py-2">
+              <button class="qty-decrement text-gray-600 text-lg bg-transparent w-8 h-8 rounded-full flex items-center justify-center" aria-label="Kurangi">−</button>
+              <input type="number" class="qty-value font-medium" min="1" value="1" />
+              <button class="qty-increment text-gray-600 text-lg bg-transparent w-8 h-8 rounded-full flex items-center justify-center" aria-label="Tambah">+</button>
+            </div>
+            <p class="text-xs text-gray-400"><em>Harga akan dikonfirmasi oleh admin.</em></p>
+          </div>
+
+          <!-- Delete -->
+          <button class="cart-delete md:ml-auto text-red-500 hover:bg-red-50 rounded-full" aria-label="Hapus item">
+           <img src="images/ic_trash.svg" alt="Hapus Item" />            
+          </button>
+
+        </div>
+
+        <!-- Cart Item -->
+        <div class="cart-item bg-[#E6E8DF] rounded-xl p-4 flex flex-col gap-3 md:flex-row md:gap-4 md:items-center">
+
+          <!-- Image -->
+          <div class="flex items-start w-full gap-3">
+            <div class="flex-shrink-0">
+              <img src="images/img-product.png" alt="Product" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover">
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 min-w-0 pr-[40px]">
+              <h3 class="font-semibold text-gray-800 text-sm md:text-base">
+                Panko Crispy – Tepung Roti Premium
+              </h3>
+              <p class="text-xs md:text-sm text-gray-500">Variant: White / Mix / Orange</p>
+              <p class="text-xs md:text-sm text-gray-500">Berat: 10kg</p>
+            </div>
+          </div>
+
+          <!-- Quantity & Delete (flex row on mobile, flex col on desktop) -->
+          <div class="flex md:flex-col items-center md:items-end gap-3 md:gap-2 md:border-r md:border-[#c6c9bc] md:pr-4">
+            <div class="qty-control flex items-center gap-3 bg-white rounded-full px-3 py-2">
+              <button class="qty-decrement text-gray-600 text-lg bg-transparent w-8 h-8 rounded-full flex items-center justify-center" aria-label="Kurangi">−</button>
+              <input type="number" class="qty-value font-medium" min="1" value="1" />
+              <button class="qty-increment text-gray-600 text-lg bg-transparent w-8 h-8 rounded-full flex items-center justify-center" aria-label="Tambah">+</button>
+            </div>
+            <p class="text-xs text-gray-400"><em>Harga akan dikonfirmasi oleh admin.</em></p>
+          </div>
+
+          <!-- Delete -->
+          <button class="cart-delete md:ml-auto text-red-500 hover:bg-red-50 rounded-full" aria-label="Hapus item">
+           <img src="images/ic_trash.svg" alt="Hapus Item" />            
+          </button>
+
+        </div>
+
+        <!-- Cart Item -->
+        <div class="cart-item bg-[#E6E8DF] rounded-xl p-4 flex flex-col gap-3 md:flex-row md:gap-4 md:items-center">
+
+          <!-- Image -->
+          <div class="flex items-start w-full gap-3">
+            <div class="flex-shrink-0">
+              <img src="images/img-product.png" alt="Product" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover">
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 min-w-0 pr-[40px]">
+              <h3 class="font-semibold text-gray-800 text-sm md:text-base">
+                Panko Crispy – Tepung Roti Premium
+              </h3>
+              <p class="text-xs md:text-sm text-gray-500">Variant: White / Mix / Orange</p>
+              <p class="text-xs md:text-sm text-gray-500">Berat: 10kg</p>
+            </div>
+          </div>
+
+          <!-- Quantity & Delete (flex row on mobile, flex col on desktop) -->
+          <div class="flex md:flex-col items-center md:items-end gap-3 md:gap-2 md:border-r md:border-[#c6c9bc] md:pr-4">
+            <div class="qty-control flex items-center gap-3 bg-white rounded-full px-3 py-2">
+              <button class="qty-decrement text-gray-600 text-lg bg-transparent w-8 h-8 rounded-full flex items-center justify-center" aria-label="Kurangi">−</button>
+              <input type="number" class="qty-value font-medium" min="1" value="1" />
+              <button class="qty-increment text-gray-600 text-lg bg-transparent w-8 h-8 rounded-full flex items-center justify-center" aria-label="Tambah">+</button>
+            </div>
+            <p class="text-xs text-gray-400"><em>Harga akan dikonfirmasi oleh admin.</em></p>
+          </div>
+
+          <!-- Delete -->
+          <button class="cart-delete md:ml-auto text-red-500 hover:bg-red-50 rounded-full" aria-label="Hapus item">
+           <img src="images/ic_trash.svg" alt="Hapus Item" />            
+          </button>
+
+        </div>
+                
+      </div>
+
+      <!-- Summary / CTA column -->
+      <aside class="lg:col-span-4 mt-8 lg:mt-0">
+        <div class="summary-box bg-white rounded-xl p-4 md:p-6 shadow-md lg:sticky lg:top-28">
+          <h3 class="text-lg font-semibold text-gray-800">Ringkasan Pesanan</h3>
+          <div class="mt-4 text-sm text-gray-600">
+            <div class="flex justify-between py-2 border-b border-gray-100"><span>Jumlah Produk</span><strong>20</strong></div>
+            <div class="flex justify-between py-2 border-b border-gray-100"><span>Jenis Produk</span><strong>4</strong></div>
+          </div>
+          <button id="openCheckout" class="btn primary hover:bg-[#216726] w-full mt-6">Lanjut Proses Pemesanan</button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Marketing CTA similar to home -->
+    <section class="partner-cta second relative py-16 overflow-hidden bg-[#2B6730] mt-8">
+      <div class="container relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 md:min-h-[320px] items-end">
+          <div class="text-white mt-6 pt-2">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Siap Pesan?</h2>
+            <p class="text-white/90 mb-4">Hubungi tim kami untuk konsultasi produk dan kebutuhan pengiriman.</p>
+            <a class="btn !bg-[#fb923c] hover:!bg-[#E36F2F] !inline-flex items-center gap-2 !px-6" href="#">
+              Chat WhatsApp
+            </a>
+          </div>
+          <div class="absolute bottom-[-85px] right-0 overflow-hidden hidden md:block">
+            <img src="images/img-cs.png" alt="product" class="w-[354px] object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: reuse from index.html -->
+  <footer id="contact" class="site-footer">
+    <div class="container text-center">
+      <div class="footer-logo">
+        <div class="logo-circle large"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+        <div class="logo-text mt-2">ADCO FOOD</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#home">HOME</a>
+        <a href="katalog.html">KATALOG PRODUK</a>
+        <a href="index.html#about">TENTANG KAMI</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+      <div class="contact-info">
+        <div class="inline-flex gap-2"><img src="images/ic_map.svg" alt="Adco Food Location"/>Jl. Arief Margono III A-53, Gn. Anyar, Surabaya</div>
+        <div class="inline-flex gap-2"><img src="images/ic_message.svg" alt="Adco Food Email"/>food.adco@gmail.com</div>
+        <div class="inline-flex gap-2"><img src="images/ic_call.svg" alt="Adco Food Phone"/>0812-3074-8200</div>
+      </div>
+      <hr class="my-6" />
+      <div class="flex justify-between items-center">
+        <p class="copyright text-sm">© 2016 Copyright - CV ADCO FOOD - All Right Reserved</p>
+        <ul class="inline-flex gap-8">
+          <li><a href="#" aria-label="X"><img width="22" src="images/ic_twitter.svg" alt="X"/></a></li>
+          <li><a href="#" aria-label="Facebook"><img width="22" src="images/ic_facebook.svg" alt="Facebook"/></a></li>
+          <li><a href="#" aria-label="Instagram"><img width="22" src="images/ic_instagram.svg" alt="Instagram"/></a></li>
+          <li><a href="#" aria-label="LinkedIn"><img width="22" src="images/ic_linkedin.svg" alt="LinkedIn"/></a></li>
+        </ul>
+      </div>
+    </div>
+    <a class="whatsapp" href="https://wa.me/6281230748200" target="_blank" rel="noopener noreferrer"><img src="images/ic_wa.png" alt="WhatsApp"/></a>
+  </footer>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button class="modal-close" aria-label="Close" data-close-modal>✕</button>
+      <h2 id="checkoutTitle" class="text-2xl text-[#363636] font-bold mb-2">Formulir Pemesanan</h2>
+      <p class="text-gray-600 text-sm mb-4">Silakan isi data berikut untuk memproses pesanan Anda.</p>
+      <form id="checkoutForm">
+        <div class="space-y-3">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+            <input name="name" type="text" required class="block w-full rounded-md border border-gray-200 p-2  text-[#363636]" />
+          </div>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="w-full">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Telepon / WhatsApp</label>
+              <input name="phone" type="tel" required class="block w-full rounded-md border border-gray-200 p-2  text-[#363636]" />
+            </div>
+            <div class="w-full">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Email</label>
+              <input name="email" type="email" required class="block w-full rounded-md border border-gray-200 p-2  text-[#363636]" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Pengiriman</label>
+            <textarea name="address" rows="3" required class="block w-full rounded-md border border-gray-200 p-2 text-[#363636]"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Catatan Tambahan (optional)</label>
+            <textarea name="address" rows="3" required class="block w-full rounded-md border border-gray-200 p-2 text-[#363636]"></textarea>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+          </div>
+
+          <div class="flex w-full justify-end gap-3 mt-2">
+            <button type="button" class="btn outline" data-close-modal>Batal</button>
+            <button type="submit" class="btn primary hover:bg-[#216726]">Kirim Pesanan</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toastContainer" class="fixed top-6 right-6 flex flex-col items-end gap-3 z-50"></div>
+
+  <div id="menuOverlay" class="menu-overlay hidden"></div>
+  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true" aria-labelledby="menuToggle">
+    <div class="mobile-menu-inner p-6">
+      <div class="flex items-center justify-center mb-6">
+        <a href="index.html" class="flex flex-col items-center gap-3">
+          <div class="logo-circle"><img src="images/brand.svg" alt="Brand Adco Food"></div>
+          <span class="logo-text">ADCO FOOD</span>
+        </a>
+        <button id="menuClose" aria-label="Close menu" class="menu-close">×</button>
+      </div>
+      <ul class="flex flex-col gap-4">
+        <li><a href="index.html" class="block py-2">HOME</a></li>
+        <li><a href="katalog.html" class="block py-2">KATALOG PRODUK</a></li>
+        <li><a href="about.html" class="block py-2">TENTANG KAMI</a></li>
+        <li><a href="contact.html" class="block py-2">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script src="script/script.js"></script>
+</body>
+</html>

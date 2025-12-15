@@ -146,6 +146,174 @@
   }
 })();
 
+// Toast helper: show transient messages (success, error, info)
+(function(){
+  const containerId = 'toastContainer';
+  const container = document.getElementById(containerId);
+  function buildToast(message, type='info', duration=4000, action){
+    const colors = {
+      success: 'bg-green-600 text-white',
+      error: 'bg-red-600 text-white',
+      info: 'bg-gray-800 text-white'
+    };
+    const toast = document.createElement('div');
+    toast.className = `max-w-sm w-full p-3 rounded-lg shadow-lg transform transition-all duration-300 opacity-0 translate-y-3 ${colors[type] || colors.info}`;
+    toast.innerHTML = `
+      <div class="flex items-start gap-3">
+        <div class="flex-1 text-sm leading-tight">${message}</div>
+      </div>
+    `;
+
+    if(action && typeof action.text === 'string' && typeof action.onClick === 'function'){
+      const btn = document.createElement('button');
+      btn.className = 'ml-3 px-3 py-1 rounded bg-white/10 text-sm text-white';
+      btn.textContent = action.text;
+      btn.addEventListener('click', ()=>{ action.onClick(); remove(); });
+      toast.querySelector('.flex').appendChild(btn);
+    }
+
+    function remove(){
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0','translate-y-3');
+      setTimeout(()=>{ toast.remove(); }, 350);
+    }
+
+    // auto remove
+    const timer = setTimeout(remove, duration);
+
+    // clear timer on hover
+    toast.addEventListener('mouseenter', ()=> clearTimeout(timer));
+    toast.addEventListener('click', remove);
+
+    return {el: toast, remove};
+  }
+
+  window.showToast = function(message, type='info', opts={}){
+    if(!container) return;
+    const {duration=4000, action} = opts;
+    const t = buildToast(message, type, duration, action);
+    container.appendChild(t.el);
+    // trigger enter
+    requestAnimationFrame(()=>{ t.el.classList.remove('opacity-0','translate-y-3'); t.el.classList.add('opacity-100','translate-y-0'); });
+    return t;
+  };
+})();
+
+// Cart interactions: quantity +/- and delete
+(function(){
+  const cartContainer = document.querySelector('main .container');
+  if(!cartContainer) return;
+
+  cartContainer.addEventListener('click', function(e){
+    const dec = e.target.closest('.qty-decrement');
+    const inc = e.target.closest('.qty-increment');
+    const del = e.target.closest('.cart-delete');
+
+    if(dec || inc){
+      const btn = dec || inc;
+      const item = btn.closest('.cart-item');
+      if(!item) return;
+      const valueEl = item.querySelector('.qty-value');
+      const current = parseInt(valueEl.value || '1', 10) || 1;
+      let next = current;
+      if(dec) next = Math.max(1, current - 1);
+      if(inc) next = current + 1;
+      valueEl.value = next;
+    }
+
+    if(del){
+      const item = del.closest('.cart-item');
+      if(!item) return;
+      // remove item immediately and show undo toast
+      const parent = item.parentElement;
+      const next = item.nextElementSibling;
+      const clone = item.cloneNode(true);
+      item.remove();
+      const toast = showToast('Item dihapus dari keranjang', 'info', {duration:5000, action:{
+        text: 'Undo',
+        onClick: ()=>{
+          if(next) parent.insertBefore(clone, next); else parent.appendChild(clone);
+        }
+      }});
+    }
+  });
+
+  // Handle direct input changes in quantity field
+  cartContainer.addEventListener('change', function(e){
+    const input = e.target.closest('.qty-value[type=number]');
+    if(!input) return;
+    let val = parseInt(input.value, 10);
+    // enforce minimum value of 1
+    if(isNaN(val) || val < 1) val = 1;
+    input.value = val;
+  });
+
+  // Prevent negative and non-numeric values while typing
+  cartContainer.addEventListener('input', function(e){
+    const input = e.target.closest('.qty-value[type=number]');
+    if(!input) return;
+    let val = input.value.trim();
+    if(val === '' || val === '-') return; // allow empty or '-' while typing
+    let num = parseInt(val, 10);
+    if(isNaN(num) || num < 1){
+      input.value = '';
+    }
+  });
+})();
+
+// Checkout modal: open/close and basic submit handling
+(function(){
+  const openBtn = document.getElementById('openCheckout');
+  const modal = document.getElementById('checkoutModal');
+  const closeElements = modal ? modal.querySelectorAll('[data-close-modal]') : [];
+  const form = document.getElementById('checkoutForm');
+
+  if(!modal || !openBtn) return;
+
+  function openModal(){
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    // focus first input for accessibility
+    const first = modal.querySelector('input,textarea,button');
+    first && first.focus();
+  }
+
+  function closeModal(){
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    openBtn.focus();
+  }
+
+  openBtn.addEventListener('click', openModal);
+
+  closeElements.forEach(el=> el.addEventListener('click', closeModal));
+
+  // close on ESC
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal(); });
+
+  // simple submit handler (validate required fields and captcha)
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = (data.get('name') || '').toString().trim();
+      const phone = (data.get('phone') || '').toString().trim();
+      const address = (data.get('address') || '').toString().trim();
+
+      if(!name){ showToast('Silakan masukkan nama.', 'error'); return; }
+      if(!phone){ showToast('Silakan masukkan nomor Whatsapp.', 'error'); return; }
+      if(!address){ showToast('Silakan masukkan alamat pengiriman.', 'error'); return; }
+
+      // TODO: send to server via fetch() if needed
+      showToast('Pesanan berhasil dikirim. Terima kasih.', 'success', {duration:5000});
+      form.reset();
+      closeModal();
+    });
+  }
+})();
+
 // Mobile menu: open/close handlers
 (function(){
   const toggle = document.getElementById('menuToggle');
