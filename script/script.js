@@ -146,6 +146,48 @@
   }
 })();
 
+// Product detail modal: static modal open/close and add-to-cart (no dynamic population)
+(function(){
+  const modal = document.getElementById('productModal');
+  if(!modal) return;
+  const backdrop = modal.querySelector('.modal-backdrop');
+  const closeEls = modal.querySelectorAll('[data-close-modal]');
+  const addBtn = modal.querySelector('#productModalAdd');
+
+  function openModal(){
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e){
+    const view = e.target.closest('.view-product');
+    if(!view) return;
+    e.preventDefault();
+    openModal();
+  });
+
+  closeEls.forEach(el=> el.addEventListener('click', closeModal));
+  backdrop && backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal(); });
+
+  addBtn && addBtn.addEventListener('click', function(){
+    const badge = document.querySelector('.badge');
+    if(badge){
+      const n = parseInt((badge.textContent||'0').trim(), 10) || 0;
+      badge.textContent = n + 1;
+    }
+    showToast('Produk ditambahkan ke keranjang', 'success');
+    closeModal();
+  });
+})();
+
 // Toast helper: show transient messages (success, error, info)
 (function(){
   const containerId = 'toastContainer';
