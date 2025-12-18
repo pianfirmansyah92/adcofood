@@ -306,7 +306,14 @@
       if(!phone){ showToast('Silakan masukkan nomor Whatsapp.', 'error'); return; }
       if(!address){ showToast('Silakan masukkan alamat pengiriman.', 'error'); return; }
 
-      // TODO: send to server via fetch() if needed
+      // check reCAPTCHA v2 response (client-side guard)
+      const captchaEl = document.getElementsByName('g-recaptcha-response')[0];
+      if(!captchaEl || !captchaEl.value || !captchaEl.value.trim()){
+        showToast('Silakan selesaikan reCAPTCHA (I\'m not a robot).', 'error');
+        return;
+      }
+
+      // TODO: send to server via fetch() if needed (also verify token server-side)
       showToast('Pesanan berhasil dikirim. Terima kasih.', 'success', {duration:5000});
       form.reset();
       closeModal();

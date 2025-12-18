@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="manifest" href="favicon/site.webmanifest">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -224,6 +225,8 @@
     </div>
     <a class="whatsapp" href="https://wa.me/6281230748200" target="_blank" rel="noopener noreferrer"><img src="images/ic_wa.png" alt="WhatsApp"/></a>
   </footer>
+  <!-- Toast container -->
+  <div id="toastContainer" class="fixed top-6 right-6 flex flex-col items-end gap-3" style="z-index: 999;"></div>
 
   <!-- Checkout Modal -->
   <div id="checkoutModal" class="modal hidden" aria-hidden="true">
@@ -254,11 +257,11 @@
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Catatan Tambahan (optional)</label>
-            <textarea name="address" rows="3" required class="block w-full rounded-md border border-gray-200 p-2 text-[#363636]"></textarea>
+            <textarea name="address" rows="3" class="block w-full rounded-md border border-gray-200 p-2 text-[#363636]"></textarea>
           </div>
 
           <div class="flex items-center gap-2">
-            
+            <div class="g-recaptcha" data-sitekey="REPLACE_WITH_YOUR_SITE_KEY"></div>
           </div>
 
           <div class="flex w-full justify-end gap-3 mt-2">
@@ -270,8 +273,6 @@
     </div>
   </div>
 
-  <!-- Toast container -->
-  <div id="toastContainer" class="fixed top-6 right-6 flex flex-col items-end gap-3 z-50"></div>
 
   <div id="menuOverlay" class="menu-overlay hidden"></div>
   <nav id="mobileMenu" class="mobile-menu" aria-hidden="true" aria-labelledby="menuToggle">
